@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chasten's Crud App</title>
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel= "stylesheet" href="style.css">
+
+    <script src="app.js"></script>
+
+</head>
+<body>
+
+    <div class="navbar w3-center">
+        <nav>
+           <h1 style="color: white;">Abroad360</h1>
+        </nav>
+    
+    </div>
+    
+    
+  <!--Full width Slideshow banner-->
+<div class="Banner">
+    <div class="mySlides">
+        <img src="photos/orangecar.jpg" style="width: 100%">
+        <button onclick="Scroll()" class="btn" style=" color: aliceblue;"
+        id="scrollbtn">Abroad360 <br> Sign up!</button>
+    </div>
+    <div class="mySlides">
+        <img src="photos/friends.jpg" style="width: 100%">
+        <button onclick="Scroll()" class="btn" style=" color: aliceblue;"
+        id="scrollbtn">Abroad360 <br> Sign up!</button>
+        
+    </div>
+    
+    <div class="mySlides">
+        <img src="photos/mountain.jpg" style="width: 100%">
+        <button onclick="Scroll()" class="btn" style=" color: aliceblue;"
+        id="scrollbtn">Abroad360 <br> Sign up!</button>
+    </div>
+    <div class="mySlides">
+        <img src="photos/beachboys.jpg" style="width: 100%">
+        <button onclick="Scroll()" class="btn" style=" color: aliceblue;"
+        id="scrollbtn">Abroad360 <br> Sign up!</button>
+    </div>
+    <div class="mySlides">
+        <img src="photos/pool.jpg" style="width: 100%">
+        <button onclick="Scroll()" class="btn" style=" color: aliceblue;"
+        id="scrollbtn">Abroad360 <br> Sign up!</button>
+    </div>
+    
+
+
+</div>
+
+    
+
+ 
+<!--automatic slideshow-->
+<script>
+    var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}
+  slides[slideIndex-1].style.display = "block";
+  setTimeout(showSlides, 5000); // Change image every 5 seconds
+}
+
+
+</script> <!--End of automatic slides-->
+<section class="w3-center" >
+
+    <h2 style="color: aliceblue;"> Abroad360 Application</h2>
+<p style="color: aliceblue;">Join us on a summer of a lifetime, where you will travel to 4 countries in 3 months! <br> Best of all 
+    you will get college credit and PAID to be with us! What are you waiting for? Sign up today!
+
+</p>
+
+<div class="container" id="form1">
+    <div class="row">
+      <div class="col-25">
+        <label for="fname">First Name</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="1" name="firstname" placeholder="Your name.." required>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="lname">Last Name</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="2" name="lastname" placeholder="Your last name..">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="country">Middle initial</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="3" name="mname" placeholder="Middle initial">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="subject">Email</label>
+      </div>
+      <div class="col-75">
+        <input id="4" name="email" placeholder="email" required>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-25">
+          <label for="address">Address</label>
+        </div>
+        <div class="col-75">
+          <input type="text" id="5" name="address" placeholder="Enter address">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-25">
+          <label for="DOB">Date of Birth</label>
+        </div>
+        <div class="col-75">
+          <input type="date" id="6" name="DOB" placeholder="Enter birthday">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-25">
+          <label for="city">City</label>
+        </div>
+        <div class="col-75">
+            <input type="text" id="7" name="City" placeholder="Enter your city">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-25">
+          <label for="State">State</label>
+        </div>
+        <div class="col-75">
+          <input type="text" id="8" name="State" placeholder="Enter your State">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-25">
+          <label for="Zip">Zip</label>
+        </div>
+        <div class="col-75">
+          <input type="text" id="9" name="Zip" placeholder="Zipcode">
+        </div>
+      </div>
+    <div class="row">
+      <input type="submit" onclick="Add()" value="Submit" style="margin-top: 10px;">
+    </div>
+</div>
+
+</section>
+  
+<div id="snackbar">Entry Deleted</div>
+
+<br>
+
+<style>
+
+table, th, td {
+    border: 1px solid black;
+}
+
+</style>
+
+<section style="margin-top: 50px;" class="w3-center" id="sec2">   
+    <h2 style="color: aliceblue;"> Pending Student Submissions</h2>
+    <div class="container" style="overflow-x: auto;">
+    <table contenteditable="true" id="Table" style="width: 100%;">
+        <tr contenteditable="false">
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Initial</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Date of Birth</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Zip</th>
+            <th>Remove</th>
+
+        </tr>
+
+      </table>
+      </div>
+      
+
+         <!-- Footer -->
+  <footer class="w3-container w3-padding-64 w3-text-grey w3-xlarge text-center">
+    <a href="" target="_blank"><i class="fa fa-facebook" ></i></a>
+        <a href="" target="_blank"><i class="fa fa-instagram"></i></a>
+        <a href="" target="_blank"><i class="fa fa-twitter"></i></a>
+        <a href="" target="_blank"><i class="fa fa-linkedin"></i></a>
+        </div>
+  <!-- End footer -->
+
+  </footer>
+</body>
+</html>
